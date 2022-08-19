@@ -1,4 +1,4 @@
-# Raspberry Pi Rotary Phone Replica Audio Recorder/Player with Dropbox API integration.
+# Raspberry Pi Rotary Phone Replica Audio Recorder/Player with Dropbox API integration
 
 ### Background
 
