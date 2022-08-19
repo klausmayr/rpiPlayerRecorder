@@ -44,7 +44,7 @@ I used two different rotary phone replica models (unfortunately from Amazon), an
 
 (prices as of August 19, 2022)
 
-- (Rotary phone replica)[https://www.amazon.com/Dododuck-Vintage-Seniors-Impaired-Adjustable/dp/B09PVFQPSX/ref=sr_1_3?crid=303LOPTYOFPE8&keywords=retro+phone+dododuck&qid=1659037000&s=electronics&sprefix=retro+phone+dododuck%2Celectronics%2C49&sr=1-3] ($44.90)
+- [Rotary phone replica](https://www.amazon.com/Dododuck-Vintage-Seniors-Impaired-Adjustable/dp/B09PVFQPSX/ref=sr_1_3?crid=303LOPTYOFPE8&keywords=retro+phone+dododuck&qid=1659037000&s=electronics&sprefix=retro+phone+dododuck%2Celectronics%2C49&sr=1-3) ($44.90)
 - [Raspberry Pi](https://www.raspberrypi.com/products/) Zero 2 W, Zero W, 3 Model A+, 4 Model B ($15.00 - $45.00)
 - [MicroSD Card](https://www.amazon.com/gp/product/B07FCMBLV6/?th=1) ($12.73)
 - [Raspberry Pi power cord](https://www.adafruit.com/product/1995) ($8.25)
