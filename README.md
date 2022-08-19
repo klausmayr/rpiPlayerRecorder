@@ -55,7 +55,7 @@ I used two different rotary phone replica models (unfortunately from Amazon), an
 - [Female-Female jumper wires](https://www.adafruit.com/product/794) ($3.95)
 - [Tactile button for power button](https://www.adafruit.com/product/367) ($2.50)
 - [TRRS Audio Cable Connector](https://www.amazon.com/Ancable-Replacement-Connector-Headphones-Headset/dp/B077XVDQ5R/ref=pd_ybh_a_sccl_67/141-9411584-6111866?pd_rd_w=sp1om&content-id=amzn1.sym.67f8cf21-ade4-4299-b433-69e404eeecf1&pf_rd_p=67f8cf21-ade4-4299-b433-69e404eeecf1&pf_rd_r=1AD6RKS1Q3QN51SMWNA5&pd_rd_wg=FYchA&pd_rd_r=c1a4b326-2466-4e16-88d8-494bf03b3f26&pd_rd_i=B077XVDQ5R&th=1) ($6.99)
-*there are lots of options for these, but I recommend just using this exact product so you don't have to spend a bunch of time getting the audio recording and playing to work.
+*there are lots of options for these, but I recommend just using this exact product so you don't have to spend a bunch of time getting the audio recording and playing to work.*
 
 The total price will vary depending on what Raspberry Pi you buy, and also price fluctuations, but the overall cost will end up between $100 and $150. Not bad considering the alternatives. For example, the phone that [This American Life used on this episode](https://www.thisamericanlife.org/672/transcript) costs $250 to rent for a few days and allows almost no customization and certainly doesn't include Dropbox integration. Also, many of these materials come in packs of multiples, so if you're making more than one, some of those costs will be lower per phone.
 
