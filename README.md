@@ -1,5 +1,29 @@
 # Raspberry Pi Rotary Phone Replica Audio Recorder/Player with Dropbox API integration
 
+This repository includes everything you need to build an affordable audio recorder/player using a [Raspberry Pi computer](https://www.raspberrypi.com/) and a rotary phone replica. It also allows you to download and upload audio from a [Dropbox App](https://www.dropbox.com/lp/developers).
+
+At the moment, you'll need some basic knowledge about Raspberry Pis, Python, and using the Dropbox API to get this up and running.
+
+If you don't have that knowledge, check back periodically for a more comprehensive guide.
+
+### Process overview
+
+1. Make a [Dropbox Developer App](https://www.dropbox.com/lp/developers)
+2. [Set up your Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up)
+3. Connect to wifi
+4. Put together the hardware (this is the hardest part, but I will add a step-by-step guide soon!)
+5. Add Python scripts from this repository
+6. Set up [CRON](https://cron.com/) jobs to run the scripts automatically when the Rpi is turned on
+
+### Potential uses
+
+- An organization (public library, school, non-profit) looking to record oral histories
+- Set it up outside an exhibit and allow visitors to record their reflections and hear what others have to say
+- Design firm seeking feedback from a community about a design proposal at a specific site
+- A co-op house where you just want to leave messages for your co-habitants
+
+I'm sure there are many more uses and would love to hear from people if you come up with any new ideas!
+
 ### Background
 
 This is a project made while working at the Chapel Hill Public Library on the [Community History team](https://chapelhillhistory.org/). There has been an ongoing discussion on the team about how to remove barriers to collecting audio from the public for things like oral history projects, exhibit reflections, or crowdsourcing people's experiences on a certain topic. We asked:
