@@ -1,6 +1,6 @@
 # Raspberry Pi Rotary Phone Replica Audio Recorder/Player with Dropbox API integration.
 
-###Background
+### Background
 
 This is a project made while working at the Chapel Hill Public Library on the [Community History team](https://chapelhillhistory.org/). There has been an ongoing discussion on the team about how to remove barriers to collecting audio from the public for things like oral history projects, exhibit reflections, or crowdsourcing people's experiences on a certain topic. We asked:
 
@@ -15,7 +15,7 @@ Thanks to Casey Connor's [Magic Telephone video](https://www.youtube.com/watch?v
 
 If you've got some experience working with Raspberry Pis, you can refer to the video from Casey Connor above to give you a general overview of how to set this up. If you have no experience with Raspberry Pi and don't have the time to dive deep into it right now, I will be adding a step-by-step visual guide soon, so either check back in or get in touch.
 
-###Materials
+### Materials
 I used two different rotary phone replica models (unfortunately from Amazon), and also tested out some different hardware for the inside of the phone. I am absolutely not an engineer, so I am sure there is still so much that could be done to improve this and would love to hear from anyone that does so. But with the materials listed below, I've got this thing to work pretty much without fail.
 
 (prices as of August 19, 2022)
