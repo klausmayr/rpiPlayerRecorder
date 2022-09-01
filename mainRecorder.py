@@ -12,15 +12,8 @@ from pad4pi import rpi_gpio
 ######################################################################
 # DEFINING THE FILE PATHS THAT WILL BE NEEDED THROUGHOUT THIS SCRIPT #
 ######################################################################
-pickupSound = '/home/pizero/recorder/pickupSound/' # file 
-buttonTwo = '/home/pizero/recorder/button2/'
-buttonThree = '/home/pizero/recorder/button3/'
-buttonFour = '/home/pizero/recorder/button4/'
-buttonFive = '/home/pizero/recorder/button5/'
-buttonSix = '/home/pizero/recorder/button6/'
-buttonSeven = '/home/pizero/recorder/button7/'
-buttonEight = '/home/pizero/recorder/button8/'
-buttonNine = '/home/pizero/recorder/button9/'
+pickupSound = '/home/pizero/recorder/pickupSound/'
+buttonsDir = '/home/pizero/recorder/buttons/'
 dialtone = "/home/pizero/recorder/audio/dial.wav"
 beepSound = "/home/pizero/recorder/audio/beep.wav"
 recDir  = "/home/pizero/recorder/recordings"
@@ -28,7 +21,6 @@ recdir="rec"
 filePrefix="recorded"
 source = "/home/pizero/recorder/recordings/"
 destination = "/home/pizero/recorder/doneRecording/"
-
 play_sound_proc = None
 threadWaiter = threading.Event()
 rec_sound_proc = None
@@ -47,9 +39,9 @@ hookSwitch = 25 # the pin connected to the hook switch (the one triggered when y
 ROW_PINS = [6, 5, 19, 13] # BCM numbering
 COL_PINS = [20, 21, 26] # BCM numbering
 
-keys = ((5, 2, 8), 
-        (6, 3, 9), 
-        (7, 8, 9), 
+keys = ((5, 2, 8),
+        (6, 3, 9),
+        (7, 8, 9),
         (4, 1, 7))
 
 factory = rpi_gpio.KeypadFactory()
@@ -72,35 +64,13 @@ def stopSoundRecord():
 # parent directory for the buttons folders, the random.choice + 
 # os.listdir functions are used to get the name of a single random
 # filename from the folder of whichever button is pressed.
+
 def recordKey(key):
     if key == 1:
         threadWaiter.set()
-    elif key == 2:
-        playSound(buttonTwo + random.choice(os.listdir(buttonTwo)))
-        if key == 1: stopSoundRecord()
-    elif key == 3:
-        playSound(buttonThree + random.choice(os.listdir(buttonThree)))
-        if key == 1: stopSoundRecord()
-    elif key == 4:
-        playSound(buttonFour + random.choice(os.listdir(buttonFour)))
-        if key == 1: stopSoundRecord()
-    elif key == 5:
-        playSound(buttonFour + random.choice(os.listdir(buttonFour)))
-        if key == 1: stopSoundRecord()
-    elif key == 5:
-        playSound(buttonFive + random.choice(os.listdir(buttonFive)))
-        if key == 1: stopSoundRecord()
-    elif key == 6:
-        playSound(buttonSix + random.choice(os.listdir(buttonSix)))
-        if key == 1: stopSoundRecord()
-    elif key == 7:
-        playSound(buttonSeven + random.choice(os.listdir(buttonSeven)))
-        if key == 1: stopSoundRecord()
-    elif key == 8:
-        playSound(buttonEight + random.choice(os.listdir(buttonEight)))
-        if key == 1: stopSoundRecord()
-    elif key == 9:
-        playSound(buttonNine + random.choice(os.listdir(buttonNine)))
+    elif key != 1:
+        stopSound()
+        playSound(buttonsDir + str(key) + '/' + random.choice(os.listdir(buttonsDir + str(key))))
         if key == 1: stopSoundRecord()
 
 def checkHook():
@@ -123,7 +93,6 @@ def getTimestamp():
 def getFileTimestamp():
     return dt.datetime.now().strftime('%Y%m%d-%H%M%S')
 
-# responsible for playing all sounds throughout the script.
 def playSound(soundName=None):
     global play_sound_proc
 
@@ -139,7 +108,6 @@ def stopSound():
 
     if play_sound_proc is not None: play_sound_proc.terminate()
 
-# responsible for starting a recording.
 def recordSound(recName):
     global rec_sound_proc, recdir
 
@@ -155,7 +123,6 @@ def soundIsRecording():
 
 def stopRecord():
     global rec_sound_proc
-    print(getTimestamp() + ' : Recording stopped at ' + getTimestamp())
     if rec_sound_proc is not None: rec_sound_proc.terminate()
 
 # The callback function which, when triggered, will set the 
@@ -179,7 +146,6 @@ def gpioEvent(channel):
 # TRY BLOCK WHICH IS WHERE ALL THE RELEVANT FUNCTIONS ARE CALLED  #
 # WHEN THEY ARE TRIGGERED BY A GPIO EVENT                         #
 ###################################################################
-
 try:
     GPIO.setmode(GPIO.BCM)
     GPIO.setwarnings(False)
@@ -207,14 +173,15 @@ try:
 
         playSound(pickupSound + random.choice(os.listdir(pickupSound)))
 
-        while soundIsPlaying() and not isOnHook: sleep(.25)
-
         if isOnHook:
             stopSound()
             continue
 
-        keypad.registerKeyPressHandler(recordKey) # triggers the keypad function.
-        waitForSignal() # passes this waitForSignal() function when button 1 is pressed.
+        keypad.registerKeyPressHandler(recordKey)
+
+        # while soundIsPlaying() and not isOnHook: sleep(.25)
+
+        waitForSignal()
 
         if isOnHook:
             stopSound()
@@ -228,6 +195,7 @@ try:
 
         if isOnHook:
             stopRecord()
+            print(getTimestamp() + ' : Recording stopped at ' + getTimestamp())
             os.rename(source + fileName, destination + fileName)
             continue
 
